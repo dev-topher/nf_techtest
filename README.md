@@ -10,6 +10,8 @@ Mi entorno de prueba posee las siguientes características:
 
 * psql (PostgreSQL) 14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)
 
+* Redis 6.0
+
 ## Gemas
 
 * gem "bootstrap", "~> 5.2"
