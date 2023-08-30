@@ -76,3 +76,7 @@ gem "jquery-rails", "~> 4.5"
 gem "popper_js", "~> 2.11"
 gem "figaro" , "~> 1.2"
 gem "chartkick", "~> 5.0"
+
+gem 'whenever', require: false
+gem 'sidekiq', "~> 6.0.7"
+gem 'sidekiq-scheduler', '~> 3.0'
