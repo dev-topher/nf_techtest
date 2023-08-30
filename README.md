@@ -16,6 +16,7 @@ Mi entorno de prueba posee las siguientes características:
 * gem "jquery-rails", "~> 4.5"
 * gem "popper_js", "~> 2.11"
 * gem "figaro" , "~> 1.2"
+* gem "chartkick", "~> 5.0"
 
 
 ## Instalación
@@ -70,7 +71,7 @@ para crear la base de datos, insertar un usuario base (también se puede registr
 
 ## Changelog
 
-* 29/08/23 - Creación de proyecto. Versionamiento e instalación de gemas. README base. Diseño y creación de base de datos (migraciones). API base. Diseño del front-end base.
+* 29/08/23 - Creación de proyecto. Versionamiento e instalación de gemas. README base. Diseño y creación de base de datos (migraciones). API base. Dashboard. Alertas.
 
 * 30/08/23 - 
 
@@ -78,10 +79,4 @@ para crear la base de datos, insertar un usuario base (también se puede registr
 
 ### TO-DO:
 
-* ~~Crear API para los reportes remotos de información.~~
-* ~~Terminar modal para modificaciones/eliminaciones de datos.~~
-
-* Crear las tareas programadas para la actualización cada 30s.
-
-* Rellenar front-end previo al login.
-* Vistas de Log-in y registro modificados.
+* Crear las tareas programadas para la actualización de data de la API cada 30s (ping api cada 30s).

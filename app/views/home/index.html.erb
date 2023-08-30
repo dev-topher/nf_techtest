@@ -1,14 +1,62 @@
 <%= render "shared/navbar" %>
 
 <div class="container">
-    <div class="row">
+    <div class="row py-5">
+        <div class="col-12">
+            <h2 class="text-center">Dashboard</h2>
+        </div>
+    </div>
+
+    <% @restaurants.each do |restaurant| %>
+
+    <div class="row py-3">
         <div class="col-6">
+            <h5 class="text-center py-3"><%= restaurant.name %></h5>
+
+            <% false_count = restaurant.devices.where(status: false).count %>
+            
+            <% if false_count == 0 %>
+                <div class="alert alert-success">
+                    <strong>Estado:</strong> <strong><i class="fa-solid fa-check"></i> Ok</strong> Todos los dispositivos funcionan correctamente
+                </div>
+            <% elsif false_count == 1 %>
+                <div class="alert alert-warning">
+                    <strong>Estado:</strong> <strong><i class="fa-solid fa-exclamation"></i> Warning</strong> Existe un problema en un dispositivo
+                </div>
+            <% else %>
+                <div class="alert alert-danger">
+                    <strong>Estado:</strong> <strong><i class="fa-solid fa-triangle-exclamation"></i> Error</strong> Dos o más dispositivos tienen problemas
+                </div>
+            <% end %>
+
+            <hr>
+
+            <% restaurant.devices.each do |device| %>
+                <div class="row">
+                    <div class="col-4">
+                        <span class="text-center">Dispositivo: <%= device.name %></span>
+                    </div>
+                    <div class="col-4">
+                        <span class="text-center">Estado: <%= device.status %></span>
+                    </div>
+                    <div class="col-4">
+                        <span class="text-center">Actualizado en: <%= device.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></span>
+                    </div>
+                </div>
+            <% end %>
 
         </div>
         <div class="col-6">
+            <h5 class="text-center py-3">Estado de los dispositivos</h5>
+
+            <%= pie_chart restaurant.devices.group(:status).count %>
 
         </div>
     </div>
+
+    <% end %>
+
+
 </div>
 
 <%= render "shared/footer" %>
